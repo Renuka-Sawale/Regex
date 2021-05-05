@@ -34,8 +34,8 @@ class PatternCheck {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the Email");
         String string = scan.nextLine();
-        test= Pattern.compile(("^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}")).matcher(string).matches();
-        if (!test) {
+        test= Pattern.compile("^[a-zA-Z[0-9]+.-]*+[a-zA-Z0-9+]*@[a-zA-Z0-9+.,]*+$").matcher(string).matches();
+        if (test) {
             System.out.println("The given email is valid");
         }
         else {
@@ -57,8 +57,8 @@ class PatternCheck {
     }
 }
 
-
 public class UserRegistraction {
+
     public static void main(String[] args) {
         PatternCheck check = new PatternCheck();
         check.testFirstName();
