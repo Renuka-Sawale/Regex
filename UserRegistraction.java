@@ -42,6 +42,19 @@ class PatternCheck {
             System.out.println("The given email is not valid");
         }
     }
+
+    public void testPhoneNo() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the Phone number");
+        String string = scan.nextLine();
+        test= Pattern.compile(("^[0-9]{1,2} [0-9]{10}")).matcher(string).matches();
+        if (test) {
+            System.out.println("The given phone number is valid");
+        }
+        else {
+            System.out.println("The given phone number is not valid");
+        }
+    }
 }
 
 
@@ -51,5 +64,6 @@ public class UserRegistraction {
         check.testFirstName();
 	check.testLastName();
 	check.testEmail();
+	check.testPhoneNo();
     }
 }
