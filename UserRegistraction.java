@@ -3,6 +3,7 @@ import java.util.regex.Pattern;
 
 class PatternCheck {
     boolean test;
+
     public void testFirstName() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the First Name");
@@ -16,7 +17,7 @@ class PatternCheck {
         }
     }
 
-public void testLastName() {
+    public void testLastName() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the Last Name");
         String string = scan.nextLine();
@@ -28,12 +29,27 @@ public void testLastName() {
             System.out.println("The given input is not valid");
         }
     }
+
+    public void testEmail() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the Email");
+        String string = scan.nextLine();
+        test= Pattern.compile(("^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}")).matcher(string).matches();
+        if (!test) {
+            System.out.println("The given email is valid");
+        }
+        else {
+            System.out.println("The given email is not valid");
+        }
+    }
 }
+
 
 public class UserRegistraction {
     public static void main(String[] args) {
         PatternCheck check = new PatternCheck();
         check.testFirstName();
 	check.testLastName();
+	check.testEmail();
     }
 }
